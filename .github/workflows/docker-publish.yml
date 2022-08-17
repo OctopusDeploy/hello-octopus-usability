@@ -74,7 +74,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: my-image-name:1.0.0
+          tags: 'usabilityhellooctopus.azurecr.io/my-image-name:1.0.0'
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
@@ -102,5 +102,5 @@ jobs:
           OCTOPUS_SPACE: 'Linda Chin'
         with:
           project: 'Hello Octopus App'
-          package_version: 'main-2'
+          package_version: '1.0.0'
 
