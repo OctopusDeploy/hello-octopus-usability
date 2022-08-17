@@ -89,3 +89,18 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+      
+      - name: Install Octopus CLI 🐙
+        uses: OctopusDeploy/install-octopus-cli-action@v1
+        with:
+          version: latest
+
+      - name: Create a release in Octopus Deploy 🐙
+        uses: OctopusDeploy/create-release-action@v2
+        env:
+          OCTOPUS_API_KEY: 'API-XFJRO7Y5JGXYNBT5JB5NBTMTZLH1YD2'
+          OCTOPUS_HOST: 'https://user-onboarding.testoctopus.app/'
+          OCTOPUS_SPACE: 'Linda Chin'
+        with:
+          project: 'Hello Octopus App'
+
