@@ -103,4 +103,5 @@ jobs:
           OCTOPUS_SPACE: 'Linda Chin'
         with:
           project: 'Hello Octopus App'
+          package_version: 'main-2'
 
